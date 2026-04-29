@@ -114,23 +114,24 @@
 .reveal .lp-logo { height: 60px; margin-bottom: 1.5em; }
 
 /* DEMO transition slide */
-.reveal .lp-demo-slide {
-  text-align: center;
+.reveal .slides > section.lp-demo-slide {
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100%;
+  justify-content: center;
+  text-align: center;
   background: var(--lp-purple-dark);
-  color: var(--lp-cream);
+  min-height: 100%;
 }
-.reveal .lp-demo-slide::after {
-  content: 'DEMO';
+.reveal .lp-demo-slide .lp-demo-text {
   font-size: 8em;
   font-weight: 800;
   letter-spacing: 0.15em;
   color: var(--lp-cream);
+  margin: 0;
+  line-height: 1;
 }
+.reveal .lp-demo-slide .lp-demo-text::after { display: none; }
 
 /* Card grids */
 .reveal .lp-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; margin-top: 1em; align-items: center; }
@@ -260,19 +261,58 @@
   border-radius: 4px;
 }
 
-/* Input-cycle for demo 2 — Reveal current-visible handles only-one-active */
+/* Input-cycle for demo 2 — first span is fade-out (visible by default), rest are current-visible */
 .reveal .lp-input-cycle {
-  display: inline-block;
-  position: relative;
-  min-width: 6em;
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  min-width: 7em;
   text-align: center;
   font-weight: 700;
   color: var(--lp-purple-dark);
 }
-.reveal .lp-input-cycle .fragment {
-  position: absolute;
-  left: 0;
-  right: 0;
+.reveal .lp-input-cycle > * {
+  grid-column: 1;
+  grid-row: 1;
   transition: opacity 0.25s ease;
 }
-.reveal .lp-input-cycle .fragment:first-child { position: static; }
+
+/* Tijdlijn-slide layout */
+.reveal .lp-tijdlijn-slide {
+  display: flex;
+  flex-direction: column;
+}
+.reveal .lp-tijdlijn-slide .lp-timeline-host {
+  flex: 0 0 auto;
+}
+.reveal .lp-tijdlijn-slide .lp-time-content {
+  flex: 1 1 auto;
+  display: grid;
+  margin-top: 1em;
+}
+.reveal .lp-tijdlijn-slide .lp-time-content > .fragment {
+  grid-column: 1;
+  grid-row: 1;
+}
+.reveal .lp-tijdlijn-slide .lp-time-default {
+  text-align: center;
+  align-self: center;
+}
+.reveal .lp-tijdlijn-slide .lp-time-default h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+.reveal .lp-tijdlijn-slide .lp-hint {
+  margin-top: 1.5em;
+  color: var(--lp-text-muted);
+  font-size: 0.7em;
+}
+.reveal .lp-tijdlijn-slide .lp-hint kbd {
+  display: inline-block;
+  padding: 0.1em 0.5em;
+  background: var(--lp-cream);
+  border: 1px solid var(--lp-border);
+  border-radius: 4px;
+  font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace;
+  font-size: 0.9em;
+  color: var(--lp-purple-dark);
+}
