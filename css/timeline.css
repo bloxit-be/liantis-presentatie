@@ -1,1 +1,97 @@
-/* timeline-styles komen volgende stap */
+/* Tijdlijn-strip — verschijnt op slides met data-time-anchor */
+
+.reveal .lp-timeline {
+  position: absolute;
+  top: 24px;
+  left: 56px;
+  right: 56px;
+  height: 48px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.reveal .lp-timeline-track {
+  position: absolute;
+  top: 22px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #e6daf3, #c8aee5);
+  border-radius: 2px;
+}
+
+.reveal .lp-timeline-marker {
+  position: absolute;
+  top: 16px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #c8aee5;
+  transform: translateX(-50%);
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.reveal .lp-timeline-marker.active {
+  background: #7843A5;
+  border-color: #29004d;
+  box-shadow: 0 0 0 6px rgba(120, 67, 165, 0.18);
+}
+
+.reveal .lp-timeline-label {
+  position: absolute;
+  top: 36px;
+  font-size: 9px;
+  color: #6b5f80;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.reveal .lp-timeline-scrubber {
+  position: absolute;
+  top: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #7843A5;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(40, 0, 77, 0.4);
+  transform: translateX(-50%);
+  transition: left 0.7s cubic-bezier(0.7, 0, 0.3, 1), filter 0.7s linear;
+}
+.reveal .lp-timeline-scrubber.moving {
+  filter: blur(2px);
+}
+
+/* Year-flash overlay (slide 01-time-jump first reveal) */
+.lp-year-flash {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--lp-cream, #f9f2ff);
+  z-index: 10000;
+  pointer-events: none;
+  animation: lp-flash-bg 1.5s forwards;
+}
+.lp-year-flash .lp-year {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 14vw;
+  color: var(--lp-purple, #7843A5);
+  letter-spacing: -0.04em;
+  opacity: 0;
+  animation: lp-flash-year 0.35s forwards;
+}
+@keyframes lp-flash-bg {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes lp-flash-year {
+  0% { opacity: 0; transform: scale(0.92); }
+  40% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.08); }
+}
