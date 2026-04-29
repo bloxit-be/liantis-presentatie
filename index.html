@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liantis · demo's</title>
+  <link rel="stylesheet" href="vendor/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="vendor/reveal.js/dist/theme/white.css" id="theme" />
+  <link rel="stylesheet" href="css/reveal-overrides.css" />
+  <link rel="stylesheet" href="css/timeline.css" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides" id="slides-root"></div>
+  </div>
+
+  <script type="module">
+    const chapters = [
+      '00-titel',
+      '01-time-jump',
+      '02-twee-jaar-geleden',
+      '03-zes-maanden-geleden',
+      '04-dinsdag',
+      '05-demo1-overview',
+      '06-demo1-live',
+      '07-demo2-overview',
+      '08-demo2-live',
+      '09-vragen',
+      '10-probeer-zelf',
+      '11-one-more-thing',
+    ];
+    const root = document.getElementById('slides-root');
+    for (const c of chapters) {
+      const r = await fetch(`slides/${c}.html`);
+      if (!r.ok) { console.error(`fetch ${c}: ${r.status}`); continue; }
+      root.insertAdjacentHTML('beforeend', await r.text());
+    }
+    await import('./js/main.js');
+    await import('./js/timeline.js');
+  </script>
+</body>
+</html>
