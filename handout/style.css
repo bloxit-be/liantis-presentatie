@@ -1,0 +1,126 @@
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Poppins-700.woff2') format('woff2');
+}
+
+:root {
+  --lp-purple: #7843A5;
+  --lp-purple-dark: #29004d;
+  --lp-cream: #f9f2ff;
+  --lp-text: #1a1230;
+  --lp-text-muted: #6b5f80;
+  --lp-bg: #ffffff;
+  --lp-border: #e6daf3;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', system-ui, sans-serif;
+  background: var(--lp-cream);
+  color: var(--lp-text);
+  line-height: 1.5;
+}
+
+.lp-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.lp-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+.lp-header img { height: 36px; }
+
+.lp-page h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--lp-purple-dark);
+  letter-spacing: -0.025em;
+  margin: 0 0 0.3em;
+}
+.lp-page > p.lead {
+  color: var(--lp-text-muted);
+  margin: 0 0 2em;
+}
+
+.lp-cards {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media (min-width: 600px) {
+  .lp-cards { grid-template-columns: 1fr 1fr; }
+}
+
+.lp-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--lp-bg);
+  border: 1px solid var(--lp-border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.lp-card:hover {
+  border-color: var(--lp-purple);
+  transform: translateY(-2px);
+}
+.lp-card h2 {
+  margin: 0 0 0.4em;
+  font-size: 1.15em;
+  color: var(--lp-purple-dark);
+}
+.lp-card p {
+  margin: 0 0 1em;
+  font-size: 0.92em;
+  color: var(--lp-text-muted);
+}
+.lp-card .lp-cta {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.5em 1em;
+  background: var(--lp-purple);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.lp-disclaimer {
+  background: var(--lp-bg);
+  border-left: 4px solid var(--lp-purple);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 0.85em;
+  color: var(--lp-text-muted);
+}
+.lp-disclaimer strong { color: var(--lp-purple-dark); }
+
+.lp-footer {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 0.75em;
+  color: var(--lp-text-muted);
+}
