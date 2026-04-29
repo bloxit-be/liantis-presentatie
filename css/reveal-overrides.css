@@ -113,18 +113,19 @@
 .reveal .lp-title .lp-subtitle { color: var(--lp-text-muted); font-size: 0.9em; font-weight: 400; }
 .reveal .lp-logo { height: 60px; margin-bottom: 1.5em; }
 
-/* DEMO transition slide */
-.reveal .slides > section.lp-demo-slide {
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* DEMO transition slide — match omt-styling: full purple-dark bg, centered DEMO. */
+.reveal .lp-demo-slide {
   text-align: center;
-  background: var(--lp-purple-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100%;
+  background: var(--lp-purple-dark);
+  color: var(--lp-cream);
 }
 .reveal .lp-demo-slide .lp-demo-text {
-  font-size: 8em;
+  font-size: 6em;
   font-weight: 800;
   letter-spacing: 0.15em;
   color: var(--lp-cream);
