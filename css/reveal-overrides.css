@@ -262,6 +262,23 @@
   border-radius: 4px;
 }
 
+/* Tools-slide: pill-grid with brand colors */
+.reveal .lp-tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  margin-top: 1.5em;
+}
+.reveal .lp-tool-pill {
+  padding: 0.55em 1.2em;
+  background: var(--lp-cream);
+  border: 2px solid var(--lp-purple);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95em;
+  color: var(--lp-purple-dark);
+}
+
 /* Input-cycle for demo 2 — first span is fade-out (visible by default), rest are current-visible */
 .reveal .lp-input-cycle {
   display: inline-grid;
